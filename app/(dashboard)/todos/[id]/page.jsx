@@ -1,10 +1,36 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({ params }) {
+  const res = await fetch(`http://localhost:4000/todos/${params.id}`);
+
+  if (!res.ok) {
+    notFound();
+  }
+
+  const todo = await res.json();
+
+  return {
+    title: todo.title,
+  };
+}
+
+export const dynamicParams = true;
+
+export async function generateStaticParams() {
+  const res = await fetch("http://localhost:4000/todos");
+
+  const todos = await res.json();
+
+  return todos.map((todo) => {
+    id: todo.id;
+  });
+}
+
 const getTodo = async (id) => {
   const res = await fetch(`http://localhost:4000/todos/${id}`, {
     next: {
-      revalidate: 0,
+      revalidate: 60,
     },
   });
 
