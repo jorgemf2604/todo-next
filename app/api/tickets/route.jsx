@@ -3,10 +3,10 @@ import { NextResponse } from "next/server";
 export const dynamic = "force-dynamic";
 
 export async function GET() {
-  const res = await fetch("http://localhost:4000/todos");
-  const todos = await res.json();
+  const res = await fetch("http://localhost:4000/tickets");
+  const tickets = await res.json();
 
-  return NextResponse.json(todos, {
+  return NextResponse.json(tickets, {
     status: 200,
   });
 }
@@ -14,15 +14,15 @@ export async function GET() {
 export async function POST(req) {
   const body = await req.json();
 
-  const res = await fetch("http://localhost:4000/todos", {
+  const res = await fetch("http://localhost:4000/tickets", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
 
-  const newTodo = await res.json();
+  const newticket = await res.json();
 
-  return NextResponse.json(newTodo, {
+  return NextResponse.json(newticket, {
     status: 201,
   });
 }

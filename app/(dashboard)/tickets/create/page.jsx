@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const CreateTodo = () => {
+const Createticket = () => {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [priority, setPriority] = useState("low");
@@ -16,28 +16,28 @@ const CreateTodo = () => {
 
     setIsLoading(true);
 
-    const newTodo = {
+    const newticket = {
       title,
       body,
       priority,
       user_email: "jorge@mail.com",
     };
 
-    const res = await fetch("http://localhost:4000/todos", {
+    const res = await fetch("http://localhost:4000/tickets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newTodo),
+      body: JSON.stringify(newticket),
     });
 
     if (res.status === 201) {
       router.refresh();
-      router.push("/todos");
+      router.push("/tickets");
     }
   };
 
   return (
     <main className="mt-28 sm:mt-20 p-8">
-      <h2>Create ToDO</h2>
+      <h2 className="text-center">Create ticket</h2>
       <form
         onSubmit={handleSubmit}
         className="bg-neutral-200 px-10 pt-10 pb-1 md:w-1/2 xl:w-1/3  m-auto shadow-2xl rounded-md"
@@ -73,11 +73,11 @@ const CreateTodo = () => {
         </label>
         <button className="btn" disabled={isLoading}>
           {isLoading && <span>Adding...</span>}
-          {!isLoading && <span>Add ToDo</span>}
+          {!isLoading && <span>Add ticket</span>}
         </button>
       </form>
     </main>
   );
 };
 
-export default CreateTodo;
+export default Createticket;

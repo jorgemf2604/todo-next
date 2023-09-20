@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-const TodoCard = ({ id, user_email, body, title, priority }) => {
+const TicketCard = ({ id, user_email, body, title, priority }) => {
   return (
-    <Link href={`/todos/${id}`}>
+    <Link href={`/tickets/${id}`}>
       <div className="rounded-lg shadow-lg bg-neutral-200 my-5 p-8 pb-12 relative hover:bg-slate-300 hover:translate-x-4 transition duration-200">
         <h3 className="text-black text-xl font-semibold">{title}</h3>
         <p className="mb-5">Create by {user_email}</p>
@@ -17,4 +17,4 @@ const TodoCard = ({ id, user_email, body, title, priority }) => {
   );
 };
 
-export default TodoCard;
+export default TicketCard;

@@ -77,7 +77,7 @@ const Home = () => {
       </p>
       <br />
       <button className="btn">
-        <Link href="todos">Fetch ToDos</Link>
+        <Link href="tickets">Fetch tickets</Link>
       </button>
       <p className="mb-8">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis quam
