@@ -27,20 +27,6 @@
       "priority": "low",
       "user_email": "jorge@mail.com",
       "id": "HGcFpho"
-    },
-    {
-      "title": "My super todo",
-      "body": "I have to do this todos",
-      "priority": "high",
-      "user_email": "jorge@mail.com",
-      "id": "JbYJhmz"
-    },
-    {
-      "title": "The last one ",
-      "body": "I promise ",
-      "priority": "medium",
-      "user_email": "jorge@mail.com",
-      "id": "Q2NM9I6"
     }
   ]
 }
