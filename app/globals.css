@@ -7,7 +7,7 @@ body {
 }
 
 nav a {
-  @apply rounded py-1 px-2 block hover:bg-red-400 hover:scale-110 hover:text-white transition;
+  @apply rounded py-1 px-2 block hover:bg-indigo-400 hover:scale-110 hover:text-white transition;
 }
 
 p {
@@ -19,7 +19,7 @@ h2 {
 }
 
 .btn {
-  @apply bg-red-400 text-white rounded px-2 py-1 m-auto block mb-8 text-xl hover:bg-red-600;
+  @apply bg-indigo-400 text-white rounded px-2 py-1 m-auto block mb-8 text-xl hover:bg-indigo-600;
 }
 
 .priority {

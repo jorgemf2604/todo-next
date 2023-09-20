@@ -36,7 +36,7 @@ const Createticket = () => {
   };
 
   return (
-    <main className="mt-28 sm:mt-20 p-8">
+    <main className="mt-40 sm:mt-20 p-8">
       <h2 className="text-center">Create ticket</h2>
       <form
         onSubmit={handleSubmit}

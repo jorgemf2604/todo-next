@@ -20,7 +20,7 @@ const tickets = async () => {
   const tickets = await gettickets();
 
   return (
-    <main className="px-10 py-3 overflow-y-auto mt-28 sm:mt-20">
+    <main className="px-10 py-3 overflow-y-auto mt-44 sm:mt-20">
       <h2>Tickets</h2>
       <div>
         {tickets.map((ticket) => (

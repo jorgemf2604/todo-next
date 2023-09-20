@@ -4,7 +4,7 @@ import Photo from "@/public/images/notebook.jpg";
 
 const Home = () => {
   return (
-    <main className="py-5 px-10 max-w-[1600px] m-auto overflow-y-auto mt-28 sm:mt-20">
+    <main className="py-5 px-10 max-w-[1600px] m-auto overflow-y-auto mt-44 sm:mt-20">
       <h2>This is the homepage</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eligendi
