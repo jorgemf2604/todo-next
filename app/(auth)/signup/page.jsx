@@ -14,7 +14,7 @@ const Signup = () => {
       email,
       password,
       options: {
-        emailRedirectTo: `https://todo-next-qz6ddnhi9-jorgemf2604.vercel.app/api/auth/callback`,
+        emailRedirectTo: `${location.origin}/api/auth/callback`,
       },
     });
 
