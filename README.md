@@ -8,7 +8,7 @@ Once in the app, you can see the tickets created, create new tickets and delete 
 
 Live site:  https://todo-next-self.vercel.app/
 
-
+![](./app2.gif)
 
 ## Getting Started
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
