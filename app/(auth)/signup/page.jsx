@@ -14,9 +14,11 @@ const Signup = () => {
       email,
       password,
       options: {
-        emailRedirectTo: `${location.origin}/api/auth/callback`,
+        emailRedirectTo: `https://todo-next-qz6ddnhi9-jorgemf2604.vercel.app/api/auth/callback`,
       },
     });
+
+    router.refresh();
 
     if (!error) {
       router.push("/verify");
