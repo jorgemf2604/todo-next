@@ -1,6 +1,16 @@
 import Link from "next/link";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-const AuthLayout = ({ children }) => {
+const AuthLayout = async ({ children }) => {
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.auth.getSession();
+
+  if (data.session) {
+    redirect("/");
+  }
+
   return (
     <main className="h-screen bg-neutral-50 overflow-y-auto">
       <nav className="flex gap-8 text-lg justify-end p-3 mr-6">

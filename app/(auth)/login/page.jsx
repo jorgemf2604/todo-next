@@ -23,6 +23,7 @@ const Login = () => {
     }
 
     if (!error) {
+      router.refresh();
       router.push("/");
     }
   };

@@ -11,6 +11,7 @@ const LogoutButton = () => {
     const { error } = await supabase.auth.signOut();
 
     if (!error) {
+      router.refresh();
       router.push("/login");
     }
 

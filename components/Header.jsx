@@ -1,5 +1,6 @@
 import Link from "next/link";
 import LogoutButton from "./LogoutButton";
+import { BiUser } from "react-icons/bi";
 
 const Header = ({ user }) => {
   return (
@@ -14,7 +15,10 @@ const Header = ({ user }) => {
         <Link href="/tickets/create">Create</Link>
       </div>
       <div className="flex items-center justify-center gap-6">
-        <span className="text-xs text-black">{user}</span>
+        <span className="text-sm text-white block bg-black px-2 py-2 rounded flex items-center gap-1">
+          <BiUser />
+          {user}
+        </span>
         <LogoutButton className="relative top-7" />
       </div>
     </nav>

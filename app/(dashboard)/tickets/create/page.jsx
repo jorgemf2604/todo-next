@@ -20,16 +20,22 @@ const Createticket = () => {
       title,
       body,
       priority,
-      user_email: "jorge@mail.com",
     };
 
-    const res = await fetch("http://localhost:4000/tickets", {
+    const res = await fetch("http://localhost:3000/api/tickets", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newticket),
     });
 
-    if (res.status === 201) {
+    const json = await res.json();
+
+    if (json.error) {
+      // console.log(error.message);
+      console.log(json.error.message);
+    }
+
+    if (json.data) {
       router.refresh();
       router.push("/tickets");
     }
