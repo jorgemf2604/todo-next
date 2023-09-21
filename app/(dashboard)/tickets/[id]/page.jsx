@@ -1,49 +1,42 @@
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
+import DeleteButton from "@/components/DeleteButton";
 
 export async function generateMetadata({ params }) {
-  const res = await fetch(`http://localhost:4000/tickets/${params.id}`);
-
-  if (!res.ok) {
-    notFound();
-  }
-
-  const ticket = await res.json();
+  const supabase = createServerComponentClient({ cookies });
+  const { data: ticket } = await supabase
+    .from("tickets")
+    .select()
+    .eq("id", params.id)
+    .single();
 
   return {
-    title: ticket.title,
+    title: `${ticket?.title || "Ticket not Found"}`,
   };
 }
 
-export const dynamicParams = true;
+const getTicket = async (id) => {
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase
+    .from("tickets")
+    .select()
+    .eq("id", id)
+    .single();
 
-export async function generateStaticParams() {
-  const res = await fetch("http://localhost:4000/tickets");
-
-  const tickets = await res.json();
-
-  return tickets.map((ticket) => {
-    id: ticket.id;
-  });
-}
-
-const getticket = async (id) => {
-  const res = await fetch(`http://localhost:4000/tickets/${id}`, {
-    next: {
-      revalidate: 60,
-    },
-  });
-
-  if (!res.ok) {
+  if (!data) {
     notFound();
   }
 
-  const ticket = await res.json();
-  return ticket;
+  return data;
 };
 
 const ticket = async ({ params }) => {
-  const ticket = await getticket(params.id);
+  const ticket = await getTicket(params.id);
+
+  const supabase = createServerComponentClient({ cookies });
+  const { data } = await supabase.auth.getSession();
 
   return (
     <main className="mt-28 sm:mt-20 p-8">
@@ -56,6 +49,9 @@ const ticket = async ({ params }) => {
         >
           {ticket.priority} priority
         </span>
+        {data.session.user.email === ticket.user_email && (
+          <DeleteButton id={params.id} />
+        )}
       </div>
       <Link href="/tickets">
         <button className="btn">Go Back</button>

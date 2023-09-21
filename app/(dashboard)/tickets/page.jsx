@@ -1,23 +1,22 @@
 import TicketCard from "@/components/TicketCard";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { notFound } from "next/navigation";
+import { cookies } from "next/headers";
 
-const gettickets = async () => {
-  const res = await fetch("http://localhost:4000/tickets", {
-    next: {
-      revalidate: 0,
-    },
-  });
+const getTickets = async () => {
+  const supabase = createServerComponentClient({ cookies });
+  const { data, error } = await supabase.from("tickets").select();
 
-  if (!res.ok) {
+  if (error) {
+    console.log(error.message);
     notFound();
   }
 
-  const tickets = await res.json();
-  return tickets;
+  return data;
 };
 
 const tickets = async () => {
-  const tickets = await gettickets();
+  const tickets = await getTickets();
 
   return (
     <main className="px-10 py-3 overflow-y-auto mt-44 sm:mt-20">
