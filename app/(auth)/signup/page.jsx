@@ -13,9 +13,9 @@ const Signup = () => {
     const { error } = await supabase.auth.signUp({
       email,
       password,
-      options: {
-        emailRedirectTo: `https://todo-next-self.vercel.app/api/auth/callback`,
-      },
+      // options: {
+      //   emailRedirectTo: `https://todo-next-self.vercel.app/api/auth/callback`,
+      // },
     });
 
     router.refresh();
