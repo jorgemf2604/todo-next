@@ -1,6 +1,17 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Ticket Master 
+
+This is a ticket app created with Next.js 13 and Supabase heavily inspired from the Net Ninja's Next 13 [tutorial](https://www.youtube.com/watch?v=TJQbDPGzm0Y&t=397s). 
+
+To test the app live, you need to sign up with a valid email and password for the ticket app. An email (with a link) will be sent to your email account and if you press the link it will redirect to the ticket app. Subsequently, you can log in into the account with those credentials (email and password). 
+
+Once in the app, you can see the tickets created, create new tickets and delete the tickets (only the ones you have created) and log out of the application, 
+
+Live site:  https://todo-next-self.vercel.app/
+
+
 
 ## Getting Started
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
