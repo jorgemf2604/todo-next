@@ -22,11 +22,14 @@ const Createticket = (e) => {
       priority,
     };
 
-    const res = await fetch("http://localhost:3000/api/tickets", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newticket),
-    });
+    const res = await fetch(
+      "https://todo-next-32mg0w68g-jorgemf2604.vercel.app/api/tickets",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newticket),
+      }
+    );
 
     const json = await res.json();
 
